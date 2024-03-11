@@ -1,0 +1,16 @@
+.idea
+.vscode/
+.env
+.vscode
+env/
+.venv/
+*pyc
+__pycache__
+staticfiles
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.python-version
+venv/
+requirements.txt
