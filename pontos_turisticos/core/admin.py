@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import PontoTuristico
 
-# Register your models here.
+admin.site.register(PontoTuristico)
+class OperacaoAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'aprovado')
+    search_fields = ('nome')
