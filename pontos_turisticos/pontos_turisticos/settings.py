@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core",
-    "atracoes",
     "comentario",
     "avaliacao",
     "endereco",
+    "atracao",
 ]
 
 MIDDLEWARE = [

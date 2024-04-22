@@ -1,9 +1,10 @@
 from django.db import models
 
-from atracao.models import Atracao
 from avaliacao.models import Avaliacao
 from comentario.models import Comentario
 from endereco.models import Endereco
+from atracao.models import Atracao
+
 
 
 class PontoTuristico(models.Model):
