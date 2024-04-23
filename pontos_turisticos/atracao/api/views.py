@@ -1,8 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
-from core.models import PontoTuristico
-from .serializers import PontoTuristicoSerializer
+from ..models import Atracao
+from .serializers import AtracaoSerializer
 
 
-class PontoTuristicoView(ModelViewSet):
-    queryset = PontoTuristico.objects.all()
-    serializer_class = PontoTuristicoSerializer
+class AtracaoView(ModelViewSet):
+    queryset = Atracao.objects.all()
+    serializer_class = AtracaoSerializer
