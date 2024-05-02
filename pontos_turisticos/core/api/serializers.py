@@ -1,10 +1,16 @@
 from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
-from core.models import PontoTuristico, Atracao
+from core.models import DocIdentificacao, PontoTuristico, Atracao
 from atracao.api.serializers import AtracaoSerializer
 from endereco.api.serializers import EnderecoSerializer
 from endereco.models import Endereco
 from avaliacao.api.serializers import AvaliacaoSerializer
+
+
+class DocIdentificacaoSerializer(ModelSerializer):
+    class Meta:
+        model = DocIdentificacao
+        fields = '__all__'
 
 
 class PontoTuristicoSerializer(ModelSerializer):
@@ -12,12 +18,13 @@ class PontoTuristicoSerializer(ModelSerializer):
     endereco = EnderecoSerializer()
     avaliacoes = AvaliacaoSerializer(read_only=True, many=True)
     descricao_completa = SerializerMethodField()
+    doc_identificacao = DocIdentificacaoSerializer()
 
     class Meta:
         model = PontoTuristico
         fields = (
             'id', 'nome', 'descricao', 'aprovado', 'descricao_completa',
-            'atracoes', 'comentarios', 'avaliacoes', 'endereco',
+            'atracoes', 'comentarios', 'avaliacoes', 'endereco', 'doc_identificacao', 'foto'
         )
         read_only_fields = ('comentarios', )
 
