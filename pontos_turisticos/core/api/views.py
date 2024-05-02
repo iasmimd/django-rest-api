@@ -1,4 +1,6 @@
 from rest_framework.filters import SearchFilter
+from rest_framework.permissions  import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
@@ -6,6 +8,8 @@ from .serializers import PontoTuristicoSerializer
 
 class PontoTuristicoView(ModelViewSet):
     serializer_class = PontoTuristicoSerializer
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
     filter_backends = (SearchFilter,)
     search_fields = ('nome', 'descricao')
 
@@ -25,3 +29,21 @@ class PontoTuristicoView(ModelViewSet):
             queryset = queryset.filter(descricao__iexact=descricao)
 
         return queryset
+    
+    def list(self, request, *args, **kwargs):
+        return super(PontoTuristicoView, self).list(request, *args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        return super(PontoTuristicoView, self).create(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        return super(PontoTuristicoView, self).destroy(request, *args, **kwargs)
+
+    def retrieve(self, request, *args, **kwargs):
+        return super(PontoTuristicoView, self).retrieve(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        return super(PontoTuristicoView, self).update(request, *args, **kwargs)
+
+    def partial_update(self, request, *args, **kwargs):
+        return super(PontoTuristicoView, self).partial_update(request, *args, **kwargs)

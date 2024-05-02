@@ -23,7 +23,7 @@ class PontoTuristicoSerializer(ModelSerializer):
     class Meta:
         model = PontoTuristico
         fields = (
-            'id', 'nome', 'descricao', 'aprovado', 'descricao_completa',
+            'id', 'nome', 'descricao', 'aprovado', 'descricao_completa', 'descricao_completa2',
             'atracoes', 'comentarios', 'avaliacoes', 'endereco', 'doc_identificacao', 'foto'
         )
         read_only_fields = ('comentarios', )
